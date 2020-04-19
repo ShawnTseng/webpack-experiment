@@ -6,8 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js',
-    print: './src/print.js',
-    common: './src/common-module.js'
+    print: './src/print.js'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -23,6 +22,7 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     // publicPath: '/' // TODO:為什麼build時需要移除這行?
+    chunkFilename: '[name].bundle.js'
   },
   optimization: {
     splitChunks: {
