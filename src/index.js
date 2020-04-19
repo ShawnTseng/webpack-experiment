@@ -1,8 +1,8 @@
 
-import './style.css';
+import './../assets/style.css';
 import _ from 'lodash';
-import Icon from './icon.png';
-import Data from './data.xml';
+import Icon from './../assets/icon.png';
+import Data from './../assets/data.xml';
 
 function component() {
   let element = document.createElement('div');
