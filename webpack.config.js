@@ -6,7 +6,8 @@ module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js',
-    print: './src/print.js'
+    print: './src/print.js',
+    common: './src/common-module.js'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -20,8 +21,8 @@ module.exports = {
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    path: path.resolve(__dirname, 'dist'),    
+    // publicPath: '/' // TODO:為什麼build時需要移除這行?
   },
   module: {
     rules: [
