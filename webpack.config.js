@@ -21,8 +21,13 @@ module.exports = {
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),    
+    path: path.resolve(__dirname, 'dist'),
     // publicPath: '/' // TODO:為什麼build時需要移除這行?
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   module: {
     rules: [
