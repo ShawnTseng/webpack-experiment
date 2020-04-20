@@ -1,5 +1,6 @@
 
 import './../assets/style.css';
+import Print from './print';
 
 async function getComponent() {
   const element = document.createElement('div');
@@ -15,6 +16,8 @@ async function getComponent() {
   //     /* webpackPreload: true */
   //     'lodash');
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.onclick = Print.bind(null, 'Hello webpack!')
+
   return element;
 }
 
