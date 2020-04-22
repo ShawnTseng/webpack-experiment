@@ -1,6 +1,7 @@
 
 import './../assets/style.css';
 import Print from './print';
+import printMe from './print';
 
 async function getComponent() {
   const element = document.createElement('div');
@@ -24,3 +25,10 @@ async function getComponent() {
 getComponent().then(component => {
   document.body.appendChild(component);
 })
+
+if (module.hot) {
+  module.hot.accept('./print.js',function () {
+    console.log('Accepting the updated printMe module!');
+    printMe();
+  })
+}

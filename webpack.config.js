@@ -9,12 +9,12 @@ module.exports = env => {
   return {
     mode: 'development',
     entry: {
-      app: './src/index.js',
-      print: './src/print.js'
+      app: './src/index.js'
     },
     devtool: 'inline-source-map',
     devServer: {
-      contentBase: './dist'
+      contentBase: './dist',
+      hot: true
     },
     plugins: [
       new CleanWebpackPlugin(),
@@ -23,7 +23,7 @@ module.exports = env => {
       })
     ],
     output: {
-      filename: '[name].[contenthash].js',
+      filename: '[name].[hash].js',
       path: path.resolve(__dirname, 'dist'),
       // publicPath: '/' // TODO:為什麼build時需要移除這行?
       chunkFilename: '[name].bundle.js'
