@@ -7,7 +7,7 @@ module.exports = env => {
   console.log('env', env);
 
   return {
-    mode: 'development',
+    mode: 'production',
     entry: {
       app: './src/index.js'
     },
@@ -29,17 +29,18 @@ module.exports = env => {
       chunkFilename: '[name].bundle.js'
     },
     optimization: {
-      moduleIds: 'hashed',
-      runtimeChunk: 'single',
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      }
+      usedExports: true
+      // moduleIds: 'hashed',
+      // runtimeChunk: 'single',
+      // splitChunks: {
+      //   cacheGroups: {
+      //     vendor: {
+      //       test: /[\\/]node_modules[\\/]/,
+      //       name: 'vendors',
+      //       chunks: 'all'
+      //     }
+      //   }
+      // }
     },
     module: {
       rules: [
