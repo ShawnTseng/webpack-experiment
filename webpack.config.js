@@ -7,27 +7,6 @@ module.exports = env => {
   console.log('env', env);
 
   return {
-    mode: 'production',
-    entry: {
-      app: './src/index.js'
-    },
-    devtool: 'inline-source-map',
-    devServer: {
-      contentBase: './dist',
-      hot: true
-    },
-    plugins: [
-      new CleanWebpackPlugin(),
-      new HtmlWebpackPlugin({
-        title: 'Caching'
-      })
-    ],
-    output: {
-      filename: '[name].[hash].js',
-      path: path.resolve(__dirname, 'dist'),
-      // publicPath: '/' // TODO:為什麼build時需要移除這行?
-      chunkFilename: '[name].bundle.js'
-    },
     optimization: {
       usedExports: true
       // moduleIds: 'hashed',
@@ -42,40 +21,5 @@ module.exports = env => {
       //   }
       // }
     },
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: [
-            'style-loader',
-            'css-loader'
-          ]
-        },
-        {
-          test: /\.(png|svg|jpg|gif)$/,
-          use: [
-            'file-loader'
-          ]
-        },
-        {
-          test: /\.(woff|woff2|eot|ttf|otf)$/,
-          use: [
-            'file-loader'
-          ]
-        },
-        {
-          test: /\.(csv|tsv)$/,
-          use: [
-            'csv-loader'
-          ]
-        },
-        {
-          test: /\.xml$/,
-          use: [
-            'xml-loader'
-          ]
-        }
-      ]
-    }
   }
 };
